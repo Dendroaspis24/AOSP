@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据与方法</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="test" v-once >
+    v-once指令，插入数据后不会修改: {{ msg }}
+    <p v-html="rawHtml">{{rawHtml}}</p>
+    <div v-bind:class="color"> red.....</div>
+    <p>{{num+1}}</p>
+    <p>{{OK?'YES':'NO'}}</p>
+    </div>
+</body>
+<script>
+    //数据对象
+    var vm = new Vue({
+        el:"#test",
+        data:{
+            msg:'hello world!',
+            rawHtml: '<span style="color:red"> this is be red</span>',
+            color: 'blue',
+            num:10,
+            OK:true
+        }
+    })
+    vm.msg='update hello world!';
+</script>
+<style>
+    .red{color: red}
+    .blue{color: blue;font-size:50px}
+</style>
+</html>
